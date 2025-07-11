@@ -2,7 +2,7 @@ import axios from "axios";
 import { LANGUAGE_VERSIONS } from "./constants";
 
 const API = axios.create({
-    baseURL: "http://judge0.online/api/v1",
+    baseURL: "https://emkc.org/api/v2/piston",
 })
 
 export const executeCode = async (language, sourceCode) => {
