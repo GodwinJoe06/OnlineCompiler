@@ -42,7 +42,7 @@ return (
           <LanguageSelector language={language} onSelect={onSelect} />
           <Editor
             options={{ minimap: { enabled: false } }}
-            height="65vh"
+            height="75vh"
             theme="vs-dark"
             language={language}
             defaultValue={CODE_SNIPPETS[language]}
