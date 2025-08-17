@@ -22,8 +22,6 @@ const CodeEditor = () => {
   };
 
    useEffect(() => {
-    const blockEvent = (e) => e.preventDefault();
-
     const blockShortcuts = (e) => {
       if ((e.ctrlKey || e.metaKey) && ['s'].includes(e.key.toLowerCase())) {
         e.preventDefault();
@@ -54,7 +52,7 @@ return (
           />
 
           <Box mt={4}>
-            <Text fontWeight="bold" mb={2}>Custom Input (stdin)</Text>
+            <Text fontWeight="bold" mb={2}>Input</Text>
             <Textarea
               placeholder="Enter input here..."
               value={custominput}
