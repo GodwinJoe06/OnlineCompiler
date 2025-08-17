@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Box, Button, Text, useToast } from "@chakra-ui/react";
 import { executeCode } from "../api";
 
-const Output = ({ editorRef, language }) => {
+const Output = ({ editorRef, language , input}) => {
   const toast = useToast();
   const [output, setOutput] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +13,7 @@ const Output = ({ editorRef, language }) => {
     if (!sourceCode) return;
     try {
       setIsLoading(true);
-      const { run: result } = await executeCode(language, sourceCode);
+      const { run: result } = await executeCode(language, sourceCode , input);
       setOutput(result.output.split("\n"));
       result.stderr ? setIsError(true) : setIsError(false);
     } catch (error) {
