@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState , useEffect } from "react";
 import { Box, HStack , Text , Textarea} from "@chakra-ui/react";
 import { Editor } from "@monaco-editor/react";
 import LanguageSelector from "./LanguageSelector";
@@ -20,6 +20,22 @@ const CodeEditor = () => {
     setLanguage(language);
     setValue(CODE_SNIPPETS[language]);
   };
+
+   useEffect(() => {
+    const blockEvent = (e) => e.preventDefault();
+
+    const blockShortcuts = (e) => {
+      if ((e.ctrlKey || e.metaKey) && ['s'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+      }
+    };
+    document.addEventListener('keydown', blockShortcuts);
+
+    return () => {
+      document.removeEventListener('keydown', blockShortcuts);
+    };
+  }, []);
+
 
 return (
     <Box>
